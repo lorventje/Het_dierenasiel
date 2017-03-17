@@ -54,6 +54,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Hond.cs" />
+    <Compile Include="Huisdier.cs" />
     <Compile Include="Kat.cs" />
     <Compile Include="Klant.cs" />
     <Compile Include="Program.cs" />

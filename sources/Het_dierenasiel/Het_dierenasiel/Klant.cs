@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace Het_dierenasiel
 {
-    class Klant
+    public class Klant
     {
-        private string klantNaam;
-        private string klantAdres;
-        private int klantTelefoonnummer;
-        private int reservatieNummer;
-        private List<Reservatie> reserveringsLijst;
+        public string klantNaam { get; private set; }
+        public string klantAdres { get; private set; }
+        public int klantTelefoonnummer { get; private set; }
+        public int reservatieNummer { get; private set; }
+        public List<Reservatie> reserveringsLijst { get; private set; }
 
         public Klant(string klantNaam, string klantAdres, int klantTelefoonnummer)
         {
-            
+            this.klantNaam = klantNaam;
+            this.klantAdres = klantAdres;
+            this.klantTelefoonnummer = klantTelefoonnummer;
         }
         public void ReserveringToevoegen(Reservatie reservering)
         {

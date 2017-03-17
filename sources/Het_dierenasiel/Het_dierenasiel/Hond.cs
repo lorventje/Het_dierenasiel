@@ -6,28 +6,19 @@ using System.Threading.Tasks;
 
 namespace Het_dierenasiel
 {
-    class Hond
+    public class Hond : Huisdier 
     {
-        private string hondNaam;
-        private string hondSoort;
-        private string hondStatus;
-        private DateTime hondUitlaatDatum;
-        private Reservatie reservering;
-        private Dierenasiel dierenasiel;
 
-        public Hond(string hondNaam, string hondSoort, string hondStatus)
+        public DateTime hondUitlaatDatum { get; private set; }
+
+        public Hond(string naam, string soort, string status, DateTime hondUitlaatDatum) :base(naam, soort, status)
         {
-
+            this.hondUitlaatDatum = hondUitlaatDatum;
         }
 
         public void UitlaatDatumToevoegen(DateTime uitlaatDatum)
         {
-
-        }
-
-        public Boolean GereserveerdZijn(Reservatie reserveringsNummer)
-        {
-            return true;
+            this.hondUitlaatDatum = uitlaatDatum;
         }
 
         public override string ToString()

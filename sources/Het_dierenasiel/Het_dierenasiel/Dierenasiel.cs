@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace Het_dierenasiel
 {
-    class Dierenasiel
+    public class Dierenasiel
     {
-        private string dierenasielNaam;
-        private string dierenasielLocatie;
-        private List<Kat> aanwezigeKatten;
-        private List<Hond> aanwezigeHonden;
+        public string dierenasielNaam { get; private set; }
+        public string dierenasielLocatie { get; private set; }
+        public List<Kat> aanwezigeKatten { get; private set; }
+        public List<Hond> aanwezigeHonden { get; private set; }
 
-        public Dierenasiel(string dierenasielNaam, string dierenasielLocatie)
+        public Dierenasiel(string _dierenasielNaam, string _dierenasielLocatie)
         {
-
+            dierenasielNaam = _dierenasielNaam;
+            dierenasielLocatie = _dierenasielLocatie;
         }
 
         public void KatToevoegen(Kat kat)

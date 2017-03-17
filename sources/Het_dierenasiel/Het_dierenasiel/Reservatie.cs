@@ -6,33 +6,29 @@ using System.Threading.Tasks;
 
 namespace Het_dierenasiel
 {
-    class Reservatie
+    public class Reservatie
     {
-        private int reserveringsNummer;
-        private Klant klant;
-        private List<Kat> lijstKatten;
-        private List<Hond> lijstHonden;
         
+        public int reserveringsNummer { get; private set; }
+        public Klant klant { get; private set; }
+        public List<Huisdier>lijstHuisdieren { get; private set; }
 
+        
         public Reservatie(int reserveringsNummer)
         {
-
+            this.reserveringsNummer = reserveringsNummer;
         }
         public void KatToevoegen(Kat kat)
         {
-            lijstKatten.Add(kat);
+            lijstHuisdieren.Add(kat);
         }
         public void HondToevoegen(Hond hond)
         {
-            lijstHonden.Add(hond);
+            lijstHuisdieren.Add(hond);
         }
-        public List<Kat> AlleKatten()
+        public List<Huisdier> AlleHuisdieren()
         {
-            return lijstKatten;
-        }
-        public List<Hond> AlleHonden()
-        {
-            return lijstHonden;
+            return lijstHuisdieren;
         }
     }
 }

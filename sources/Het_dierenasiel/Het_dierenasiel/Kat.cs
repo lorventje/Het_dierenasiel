@@ -6,23 +6,13 @@ using System.Threading.Tasks;
 
 namespace Het_dierenasiel
 {
-    class Kat
+    public class Kat : Huisdier
     {
-        private string katNaam;
-        private string katSoort;
-        private string katStatus;
-        private string katGewoonte;
-        private Reservatie reservering;
-        private Dierenasiel dierenasiel;
+        public string katGewoonte { get; private set; }
 
-        public Kat(string katNaam, string katSoort, string katStatus, string katGewoonte)
+        public Kat(string naam, string soort, string status, string gewoonte) :base(naam,soort,status)
         {
-
-        }
-
-        public Boolean GereserveerdZijn(Reservatie reserveringsNummer)
-        {
-            return true;
+            this.katGewoonte = gewoonte;
         }
 
         public override string ToString()

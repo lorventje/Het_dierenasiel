@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Het_dierenasiel", "Het_dierenasiel\Het_dierenasiel.csproj", "{1B2167C8-93AB-4C48-B207-1EAED44914AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{891D54BD-8120-46D4-89E1-2AEEE1C50EC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1B2167C8-93AB-4C48-B207-1EAED44914AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B2167C8-93AB-4C48-B207-1EAED44914AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B2167C8-93AB-4C48-B207-1EAED44914AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{891D54BD-8120-46D4-89E1-2AEEE1C50EC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{891D54BD-8120-46D4-89E1-2AEEE1C50EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{891D54BD-8120-46D4-89E1-2AEEE1C50EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{891D54BD-8120-46D4-89E1-2AEEE1C50EC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
