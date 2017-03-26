@@ -10,31 +10,29 @@ namespace Het_dierenasiel
     {
         public string dierenasielNaam { get; private set; }
         public string dierenasielLocatie { get; private set; }
-        public List<Kat> aanwezigeKatten { get; private set; }
-        public List<Hond> aanwezigeHonden { get; private set; }
+        public List<Huisdier> aanwezigeHuisdieren = new List<Huisdier>();
+        public List<Hond> hondjes = new List<Hond>();
+    
 
         public Dierenasiel(string _dierenasielNaam, string _dierenasielLocatie)
         {
             dierenasielNaam = _dierenasielNaam;
             dierenasielLocatie = _dierenasielLocatie;
         }
-
         public void KatToevoegen(Kat kat)
         {
-            aanwezigeKatten.Add(kat);
+            aanwezigeHuisdieren.Add(kat);
         }
         public void HondToevoegen(Hond hond)
         {
-            aanwezigeHonden.Add(hond);
+            aanwezigeHuisdieren.Add(hond);
         }
-        public void KatVerwijderen(Kat kat)
+        public void HuisdierVerwijderen(Huisdier huisdier)
         {
-            aanwezigeKatten.Remove(kat);
+            aanwezigeHuisdieren.Remove(huisdier);
         }
-        public void HondVerwijderen(Hond hond)
-        {
-            aanwezigeHonden.Remove(hond);
-        }
+        
+
         public override string ToString()
         {
             return base.ToString();

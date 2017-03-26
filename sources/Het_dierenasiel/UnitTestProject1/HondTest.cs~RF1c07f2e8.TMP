@@ -1,0 +1,26 @@
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Het_dierenasiel
+{
+    using Het_dierenasiel;
+    [TestClass]
+    public class HondTest
+    {
+        private Hond hond;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            this.hond = new Hond("brutus", "goldenRetriever", (new DateTime(2008,01,01)));
+        }
+
+        [TestMethod]
+        public void TestNieuweHond()
+        {
+            Assert.AreEqual("brutus", hond.Naam, "incorrect Hondnaam");
+            Assert.AreEqual("goldenRetriever", hond.Soort, "incorrect Hondsoort");
+            Assert.AreEqual(new DateTime(2008,01,01), hond.hondUitlaatDatum, "incorrect HondUitlaatDatum");
+        }
+    }
+}

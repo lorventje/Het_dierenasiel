@@ -8,16 +8,30 @@ namespace Het_dierenasiel
 {
     public class Kat : Huisdier
     {
-        public string katGewoonte { get; private set; }
+        private decimal prijs;
+        public string katGewoonte { get; set; }
+        public override decimal Prijs { get; set; }
 
-        public Kat(string naam, string soort, string status, string gewoonte) :base(naam,soort,status)
+
+        public Kat(string naam, string soort, string gewoonte) :base(naam,soort)
         {
             this.katGewoonte = gewoonte;
+            if(katGewoonte.Length > 15)
+            {
+                prijs = 35;
+            }
+            else
+            {
+                prijs = (350 - (katGewoonte.Length * 20));
+            }
+            this.Prijs = prijs;
         }
+
 
         public override string ToString()
         {
             return base.ToString();
         }
+
     }
 }

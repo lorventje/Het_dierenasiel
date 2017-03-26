@@ -6,22 +6,35 @@ using System.Threading.Tasks;
 
 namespace Het_dierenasiel
 {
-    public class Huisdier
+    public abstract class Huisdier : IVerkoopbaar
     {
-        public string naam { get; private set; }
-        public string soort { get; private set; }
-        public string status { get; private set; }
-        public Reservatie reservering { get; private set; }
-        public Dierenasiel dierenasiel { get; private set; }
-        public Huisdier(string naam, string soort, string status)
+        public string Naam { get; set; }
+        public string Soort { get; private set; }
+        public Reservering Reservering { get; private set; }
+        public Dierenasiel Dierenasiel { get; private set; }
+        public abstract decimal Prijs { get; set; }
+
+
+        public Huisdier(string _naam, string _soort)
         {
-            this.naam = naam;
-            this.soort = soort;
-            this.status = status;
+            this.Naam = _naam;
+            this.Soort = _soort;
+                
         }
-        public Boolean GereserveerdZijn(Reservatie reservatie)
+        public Boolean Gereserveerd(int reserveringsnummer)
         {
-            return true;
+            if(this.Reservering == null)
+            {
+                this.Reservering = new Reservering(15, DateTime.Now);
+                return true;
+            }
+            return false;
+        }
+
+
+        public override string ToString()
+        {
+            return Naam;
         }
     }
 }

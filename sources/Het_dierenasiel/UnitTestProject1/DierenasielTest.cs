@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 
 namespace Het_dierenasiel
@@ -8,32 +9,42 @@ namespace Het_dierenasiel
     [TestClass]
     public class DierenasielTest
     {
-        
-        [TestMethod]
-        public void TestMethod1()
+        private Dierenasiel dierenasiel;
+
+        [TestInitialize]
+        public void TestInitialize()
         {
-            Dierenasiel dierenasiel = new Dierenasiel("OpvangcentrumKoko", "Zuilichem");
-            Assert.AreEqual("OpvangcentrumKoko", dierenasiel.dierenasielNaam, "incorrect Asielnaam");
-            Assert.AreEqual("Zuilichem", dierenasiel.dierenasielLocatie, "incorrect Asiellocatie");
-
-            Kat kat = new Kat("kees", "burmees", "zwerfer", "niet voor kinderen");
-            Assert.AreEqual("kees", kat.naam, "incorrect Katnaam");
-            Assert.AreEqual("burmees", kat.soort, "incorrect Katsoort");
-            Assert.AreEqual("zwerfer", kat.status, "incorrect Katstatus");
-            Assert.AreEqual("niet voor kinderen", kat.katGewoonte, "incorrect Katgewoonte");
-
-            Hond hond = new Hond("brutus", "goldenRetriever", "gevonden", (new DateTime(2008)));
-            Assert.AreEqual("brutus", hond.naam, "incorrect Hondnaam");
-            Assert.AreEqual("goldenRetriever", hond.soort, "incorrect Hondsoort");
-            Assert.AreEqual("gevonden", hond.status, "incorrect Hondstatus");
-
-            Reservatie reservatie = new Reservatie(801);
-            Assert.AreEqual(801, reservatie.reserveringsNummer);
-
-            Klant klant = new Klant("willem", "kaapstraat 27", 0640478279);
-            Assert.AreEqual("willem", klant.klantNaam, "incorrect klantNaam");
-            Assert.AreEqual("kaapstraat 27", klant.klantAdres, "incorrect klantAdres");
-            Assert.AreEqual(0640478279, klant.klantTelefoonnummer, "incorrect klantTelefoon");
+            this.dierenasiel = new Dierenasiel("opvangertjes", "Haarlem");
+        }
+        [TestMethod]
+        public void ConstructorTestNieuwDierenasiel()
+        {
+            Assert.AreEqual("opvangertjes", dierenasiel.dierenasielNaam, "incorrect Asielnaam");
+            Assert.AreEqual("Haarlem", dierenasiel.dierenasielLocatie, "incorrect Asiellocatie");
+        }
+        [TestMethod]
+        public void TestKatToevoegenAanLijst()
+        {
+            Assert.AreEqual(0, this.dierenasiel.aanwezigeHuisdieren.Count);
+            dierenasiel.KatToevoegen(new Kat("kees", "bermuda", "avontuurlijk"));
+            Assert.AreEqual(1, this.dierenasiel.aanwezigeHuisdieren.Count);
+        }
+        [TestMethod]
+        public void TestHondToevoegenAanLijst()
+        {
+            Assert.AreEqual(0, this.dierenasiel.aanwezigeHuisdieren.Count);
+            dierenasiel.HondToevoegen(new Hond("kees", "bermuda", new DateTime(2008, 12, 01)));
+            Assert.AreEqual(1, this.dierenasiel.aanwezigeHuisdieren.Count);
+        }
+        [TestMethod]
+        public void TestHuisdierVerwijderenUitLijst()
+        {
+            dierenasiel.HondToevoegen(new Hond("kees", "bermuda", new DateTime(2008, 12, 01)));
+            dierenasiel.KatToevoegen(new Kat("kees", "bermuda", "avontuurlijk"));
+            dierenasiel.HondToevoegen(new Hond("keesje", "bermudatje", new DateTime(2010, 12, 01)));
+            Assert.AreEqual(3, this.dierenasiel.aanwezigeHuisdieren.Count);
+            dierenasiel.HuisdierVerwijderen(dierenasiel.aanwezigeHuisdieren[1]);
+            Assert.AreEqual(2, this.dierenasiel.aanwezigeHuisdieren.Count);
         }
     }
 }
